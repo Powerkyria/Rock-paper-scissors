@@ -2,7 +2,11 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    min-height:100vh;
+    width: 100vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button{
@@ -13,25 +17,35 @@ button{
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    width: 150px;
+    width: 200px;
     height: 50px;
     margin-bottom: 7px;
-    font-size: 20px;
+    font-size: 22px;
     border: 2px solid black;
+    justify-content: center;
+    align-items: center;
 }
 
 #rockButton{
     background-color: blue;
     color: white;
 }
-/* #rockButton:hover{
+#rockButton:hover{
+    background-color: rgb(74, 74, 241);
+}
 
-} */
 #paperButton{
     background-color: teal;
     color: white;
 }
+#paperButton:hover{
+    background-color: rgb(23, 160, 160);
+}
+
 #scissorsButton{
     background-color: blueviolet;
     color: white;
+}
+#scissorsButton:hover{
+    background-color: rgb(148, 62, 228);
 }
