@@ -6,17 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra, papel, tijera</title>
     <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" />
 </head>
 
 <body>
     <main>
-        <img id="izquierda" src="" alt="">
-        <img id="derecha" src="" alt="">
-        <div id="message"></div>
-        <div class="buttons">
-            <button id="rockButton">Piedra</button>
-            <button id="paperButton">Papel</button>
-            <button id="scissorsButton">Tijera</button>
+        <!-- <p id="start">Are you Ready?</p> -->
+
+
+        <div id="modal">
+            <p id="message"></p>
+        </div>
+
+        <div class="centerPart">
+            <img id="imgLeft" src="" alt="">
+            <div class="buttons">
+                <button id="rockButton">Piedra</button>
+                <button id="paperButton">Papel</button>
+                <button id="scissorsButton">Tijera</button>
+            </div>
+            <img id="imgRight" src="" alt="">
+        </div>
+
+        <div id="players">
+            <p>Player</p>
+            <p>CPU</p>
+        </div>
+
+        <div id="punctuation">
+            <p id="totalGames">5</p>
+            <div id="scoreBoard">SCORE</div>
         </div>
     </main>
     <script src="./main.js"></script>
