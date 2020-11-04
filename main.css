@@ -59,10 +59,10 @@ button {
 	display: none;
 }
 
-#imgLeft {
+#imgPlayer {
 	width: 400px;
 }
-#imgRight {
+#imgCpu {
 	width: 400px;
 }
 
@@ -90,17 +90,14 @@ button {
 }
 
 #scoreBoard {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	background-color:black;
 	color: white;
 	width: 300px;
 	height: 50px;
 	border-radius: 50px;
-	-webkit-border-radius: 50px;
-	-moz-border-radius: 50px;
-	-ms-border-radius: 50px;
-    -o-border-radius: 50px;
-    line-height: 50px;
-    text-align: center;
 	margin: auto;
 	margin-bottom: 25px;
 
@@ -151,3 +148,8 @@ button {
 	color:gray;
 }
 
+.handsShake{
+	animation:shakeY;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
