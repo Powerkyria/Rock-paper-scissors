@@ -67,34 +67,39 @@ function game(user, cpu) {
 
 	// HACER QUE CPU SAQUE JUGADA RANDOM
 
+
+	
 	// while (totalGames < 5) {
 
-	// SACAR MANOS Y MOSTRAR MENSAJES--->HECHO
-	// PINTAR MARCADOR DENTRO DE SU PIZARRA
+	// SACAR MANOS Y MOSTRAR MENSAJES--->INCOMPLETO
+	// PINTAR MARCADOR DENTRO DE SU PIZARRA--->HECHO
 
 	if (user != cpu) {
 		if (user === rock && cpu === scissors) {
 			imgPlayer.src = './images/rock_izq.jpg';
 			imgCpu.src = './images/scissors_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
-			scorePlayer += 1;
+			pointsPlayer.innerHTML = scorePlayer += 1;
 		} else if (user === paper && cpu === rock) {
 			imgPlayer.src = './images/paper_izq.jpg';
 			imgCpu.src = './images/rock_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
-			scorePlayer += 1;
+			pointsPlayer.innerHTML = scorePlayer += 1;
 		} else if (user === scissors && cpu === paper) {
 			imgPlayer.src = './images/scissors_izq.jpg';
 			imgCpu.src = './images/paper_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
-			scorePlayer += 1;
+			pointsPlayer.innerHTML = scorePlayer += 1;
 		} else {
 			message.innerHTML = 'YOU LOOSE!!';
-			scoreCPU += 1;
+			pointsCpu.innerHTML = scoreCPU += 1;
 		}
 	} else if (user === cpu) {
 		message.innerHTML = 'EMPATE';
 	}
+
+
+	//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
 }
 // }
 
