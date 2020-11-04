@@ -1,13 +1,15 @@
 'use strict';
 
-const op1 = document.getElementById('rockButton');
-const op2 = document.getElementById('paperButton');
-const op3 = document.getElementById('scissorsButton');
+const rock = document.getElementById('rockButton');
+const paper = document.getElementById('paperButton');
+const scissors = document.getElementById('scissorsButton');
 const buttons = document.querySelector('.buttons');
 const imgIzq = document.getElementById('imgLeft');
 const imgDer = document.getElementById('imgRight');
 const message = document.getElementById('message');
 const players = document.getElementById('players');
+const player = document.getElementById('player');
+const compu = document.getElementById('cpu');
 const punctuation = document.getElementById('punctuation');
 
 
@@ -17,9 +19,9 @@ const punctuation = document.getElementById('punctuation');
 
 // 2. CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
 
-op1.addEventListener('click', game);
-op2.addEventListener('click', game);
-op3.addEventListener('click', game);
+rock.addEventListener('click', game);
+paper.addEventListener('click', game);
+scissors.addEventListener('click', game);
 
 function game(user, cpu) {
 	//3 CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
@@ -31,11 +33,11 @@ function game(user, cpu) {
 
 	buttons.classList.add('hidden');
 
-	//5 OCULTAR PLAYERS, MARCADOR Y NUMERO DE JUEGOS
+	//5 OCULTAR PLAYERS, MARCADOR Y NUMERO DE JUEGOS--->HECHO
 	
 	punctuation.classList.add('hidden');
-	players.classList.add('hidden'); 
-	//player no se oculta no encuentro la razon.
+	compu.classList.add('hidden'); 
+	player.classList.add('hidden');
 
 	//6 CUENTA ATRAS DE TRES SEGUNDOS--->HECHO
 
@@ -49,41 +51,48 @@ function game(user, cpu) {
 
 		if (timer === 0) {
 			message.remove();
+			// VOLVER A MOSTRAR MARCADOR Y PLAYERS--->HECHO
+			punctuation.classList.remove('hidden');
+	        player.classList.remove('hidden'); 
+	        compu.classList.remove('hidden'); 
 		}
 	};
 
 	setInterval(countDown, 1000);
-    // VOLVER A MOSTRAR MARCADO Y PLAYERS;
+
 	// HACER QUE CPU SAQUE JUGADA RANDOM
-	// SACAR MANOS Y MOSTRAR MENSAJES
+
 
 	// while (totalGames < 5) {
 
-	if (user != cpu) {
-		if (user === op1 && cpu === op3) {
-			imgIzq.src = './images/rock_izq.jpg';
-			imgDer.src = './images/scissors_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			scorePlayer += 1;
-		} else if (user === op2 && cpu === op1) {
-			imgIzq.src = './images/paper_izq.jpg';
-			imgDer.src = './images/rock_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			scorePlayer += 1;
-		} else if (user === op3 && cpu === op2) {
-			imgIzq.src = './images/scissors_izq.jpg';
-			imgDer.src = './images/paper_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			scorePlayer += 1;
-		} else {
-			message.innerHTML = 'YOU LOOSE!!';
-			scoreCPU += 1;
-		}
-	} else if (user === cpu) {
-		message.innerHTML = 'EMPATE';
-	}
-}
+ 
+	// SACAR MANOS Y MOSTRAR MENSAJES
+
+// 	if (user != cpu) {
+// 		if (user === op1 && cpu === op3) {
+// 			imgIzq.src = './images/rock_izq.jpg';
+// 			imgDer.src = './images/scissors_der.jpg';
+// 			message.innerHTML = 'YOU WIN!!';
+// 			scorePlayer += 1;
+// 		} else if (user === op2 && cpu === op1) {
+// 			imgIzq.src = './images/paper_izq.jpg';
+// 			imgDer.src = './images/rock_der.jpg';
+// 			message.innerHTML = 'YOU WIN!!';
+// 			scorePlayer += 1;
+// 		} else if (user === op3 && cpu === op2) {
+// 			imgIzq.src = './images/scissors_izq.jpg';
+// 			imgDer.src = './images/paper_der.jpg';
+// 			message.innerHTML = 'YOU WIN!!';
+// 			scorePlayer += 1;
+// 		} else {
+// 			message.innerHTML = 'YOU LOOSE!!';
+// 			scoreCPU += 1;
+// 		}
+// 	} else if (user === cpu) {
+// 		message.innerHTML = 'EMPATE';
+// 	}
 // }
+}
 
 // PINTAR MARCADOR DENTRO DE SU PIZARRA
 
