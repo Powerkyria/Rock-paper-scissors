@@ -20,12 +20,12 @@ const totalGames = document.getElementById('totalGames');
 
 alert('Are You Ready Nigga?');
 
-// CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
-
-rock.addEventListener('click', game);
-paper.addEventListener('click', game);
-scissors.addEventListener('click', game);
-
+	// CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
+	
+		rock.addEventListener('click', game);
+		paper.addEventListener('click', game);
+		scissors.addEventListener('click', game);
+	
 function game(user, cpu) {
 	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
 	let scorePlayer = 0;
@@ -46,10 +46,8 @@ function game(user, cpu) {
 
 	// CUENTA ATRAS DE TRES SEGUNDOS--->HECHO
 
-	
 	let timer = 4;
 	const countDown = () => {
-		
 		timer--;
 		message.classList.add('countDownAnimation');
 		message.style.fontSize = '550px';
@@ -62,23 +60,29 @@ function game(user, cpu) {
 			player.classList.remove('hidden');
 			compu.classList.remove('hidden');
 			//AÑADIR VIBRACION A LAS MANOS ANTES DE MOSTRAR LA MANO--->HECHO!
-			imgPlayer.classList.add('handsShake');
-			imgCpu.classList.add('handsShake');
+			handsShake();
 		}
 	};
 
 	setInterval(countDown, 1000);
 
-	// HACER QUE CPU SAQUE JUGADA RANDOM
-	function playCpu() {
-		const hands = [ rock, paper, scissors ];
-		Math.random();
+	//FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA--->HECHO
+	function handsShake() {
+		imgPlayer.classList.add('handsShake');
+		imgCpu.classList.add('handsShake');
+	}
 
+
+
+	// HACER QUE CPU SAQUE JUGADA RANDOM---HECHO
+	function playCpu() {
+		const hands = [ 'rock', 'paper', 'scissors' ];
 		const handCpu = hands[Math.floor(Math.random() * hands.length)];
 		return handCpu;
 	}
+	console.log(playCpu());
 
-	// while (totalGames < 5) {
+	// while (totalGames <= 5) {
 
 	// SACAR MANOS Y MOSTRAR MENSAJES--->INCOMPLETO NO FUNCIONA EL WHILE AUN
 	// PINTAR MARCADOR DENTRO DE SU PIZARRA--->HECHO
@@ -86,19 +90,19 @@ function game(user, cpu) {
 	// RETRASAR UN SEGUNDO EL MENSAJE
 
 	if (user != cpu) {
-		if (user === rock && cpu === scissors) {
+		if (user === rock && cpu === 'scissors') {
 			imgPlayer.src = './images/rock_izq.jpg';
 			imgCpu.src = './images/scissors_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
 			pointsPlayer.innerHTML = scorePlayer += 1;
 			totalGames.innerHTML = countGames;
-		} else if (user === paper && cpu === rock) {
+		} else if (user === paper && cpu === 'rock') {
 			imgPlayer.src = './images/paper_izq.jpg';
 			imgCpu.src = './images/rock_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
 			pointsPlayer.innerHTML = scorePlayer += 1;
 			totalGames.innerHTML = countGames;
-		} else if (user === scissors && cpu === paper) {
+		} else if (user === scissors && cpu === 'paper') {
 			imgPlayer.src = './images/scissors_izq.jpg';
 			imgCpu.src = './images/paper_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
@@ -109,12 +113,14 @@ function game(user, cpu) {
 			pointsCpu.innerHTML = scoreCPU += 1;
 			totalGames.innerHTML = countGames;
 		}
-	} else if (user === cpu) {
+	} else if (user == cpu) {
 		message.innerHTML = 'EMPATE';
 	}
 
 	// }
 }
+
+game(undefine,playCpu())
 
 //MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
 buttons.classList.remove('hidden');
@@ -127,6 +133,7 @@ buttons.classList.remove('hidden');
 // 		message.innerHTML = 'Mala suerte';
 // 	} else {
 // 		message.innerHTML = 'Empate';
+        // NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
 // 	}
 // }
 // whoWin();
