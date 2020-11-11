@@ -28,7 +28,8 @@ button {
 	border: 2px solid black;
 	justify-content: center;
     align-items: center;
-    cursor: pointer;
+	cursor: pointer;
+	outline: none;
 }
 
 #rockButton {
@@ -150,6 +151,6 @@ button {
 
 .handsShake{
 	animation:shakeY;
-	animation-duration: 1s;
+	animation-duration: 1.5s;
 	animation-iteration-count: 1;
 }
