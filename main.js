@@ -20,6 +20,7 @@ const totalGames = document.getElementById('totalGames');
 
 alert('Are You Ready Nigga?');
 
+//SI TOCA ALGUN BOTON DOY POR COMENZADA LA PARTIDA, YA NO HAY MARCHA ATRAS HABER ELEGIDO MUERTE
 buttons.addEventListener('click', startGame);
 
 function startGame() {
@@ -67,13 +68,24 @@ rock.addEventListener('click', game);
 paper.addEventListener('click', game);
 scissors.addEventListener('click', game);
 
+// ELECCION DEL JUGADOR
+
+// function playUser(){
+// 	if(){
+		
+// 	}
+// }
+
+
+
 function game(user, cpu) {
+
+	startGame();
+
 	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
 	let scorePlayer = 0;
 	let scoreCPU = 0;
 	let countGames = scorePlayer + scoreCPU;
-
-	startGame();
 
 	// HACER QUE CPU SAQUE JUGADA RANDOM---HECHO
 	function playCpu() {
@@ -81,7 +93,7 @@ function game(user, cpu) {
 		const handCpu = hands[Math.floor(Math.random() * hands.length)];
 		return handCpu;
 	}
-	console.log(playCpu());
+	playCpu()
 
 	// while (totalGames <= 5) {
 
@@ -114,19 +126,19 @@ function game(user, cpu) {
 			pointsCpu.innerHTML = scoreCPU += 1;
 			totalGames.innerHTML = countGames;
 		}
-	} else if (user == cpu) {
+	} else if (user === cpu) {
 		message.innerHTML = 'EMPATE';
+		// totalGames.innerHTML = countGames + 1; NO PONER SI NO QUIERO EMPATES
 	}
-
+	//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
+	buttons.classList.remove('hidden');
 	// }
 }
 
-game(undefine, playCpu());
-
-//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
-buttons.classList.remove('hidden');
+game(playUser(), playCpu());
 
 // VALIDAR QUIEN GANÓ
+
 // function whoWin() {
 // 	if (pointsPlayer > pointsCpu) {
 // 		message.innerHTML = 'Enhorabuena';
