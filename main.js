@@ -20,24 +20,12 @@ const totalGames = document.getElementById('totalGames');
 
 alert('Are You Ready Nigga?');
 
-	// CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
-	
-		rock.addEventListener('click', game);
-		paper.addEventListener('click', game);
-		scissors.addEventListener('click', game);
-	
-function game(user, cpu) {
-	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
-	let scorePlayer = 0;
-	let scoreCPU = 0;
-	let countGames = scorePlayer + scoreCPU;
+buttons.addEventListener('click', startGame);
 
-	// OCULTO BOTONES MIENTRAS DOY PASO A LA JUGADA--->HECHO
-
-	buttons.classList.add('hidden');
-
-	// OCULTAR PLAYERS, MARCADOR Y NUMERO DE JUEGOS--->HECHO
+function startGame() {
+	// OCULTAR BOTONES PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
 	function hideScreenElements() {
+		buttons.classList.add('hidden');
 		punctuation.classList.add('hidden');
 		compu.classList.add('hidden');
 		player.classList.add('hidden');
@@ -71,8 +59,21 @@ function game(user, cpu) {
 		imgPlayer.classList.add('handsShake');
 		imgCpu.classList.add('handsShake');
 	}
+}
 
+// CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
 
+rock.addEventListener('click', game);
+paper.addEventListener('click', game);
+scissors.addEventListener('click', game);
+
+function game(user, cpu) {
+	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
+	let scorePlayer = 0;
+	let scoreCPU = 0;
+	let countGames = scorePlayer + scoreCPU;
+
+	startGame();
 
 	// HACER QUE CPU SAQUE JUGADA RANDOM---HECHO
 	function playCpu() {
@@ -120,7 +121,7 @@ function game(user, cpu) {
 	// }
 }
 
-game(undefine,playCpu())
+game(undefine, playCpu());
 
 //MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
 buttons.classList.remove('hidden');
@@ -133,7 +134,7 @@ buttons.classList.remove('hidden');
 // 		message.innerHTML = 'Mala suerte';
 // 	} else {
 // 		message.innerHTML = 'Empate';
-        // NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
+// NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
 // 	}
 // }
 // whoWin();
