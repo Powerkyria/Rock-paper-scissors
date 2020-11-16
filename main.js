@@ -24,6 +24,7 @@ alert('Are You Ready?');
 buttons.addEventListener('click', startGame);
 
 function startGame() {
+
 	// OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
 	function hideScreenElements() {
 		buttons.classList.add('hidden');
@@ -48,20 +49,21 @@ function startGame() {
 			punctuation.classList.remove('hidden');
 			player.classList.remove('hidden');
 			compu.classList.remove('hidden');
-			//AÑADIR VIBRACION A LAS MANOS ANTES DE MOSTRAR LA MANO--->HECHO!
-			handsShake();
 		}
+		//AÑADIR VIBRACION A LAS MANOS ANTES DE MOSTRAR LA MANO--->HECHO!
+		handsShake();
 	};
-
+	
 	setInterval(countDown, 1000);
-
+	
 	//FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA--->HECHO
-	function handsShake() {
-		imgPlayer.classList.add('handsShake');
-		imgCpu.classList.add('handsShake');
-	}
+	
 }
 
+function handsShake() {
+	imgPlayer.classList.add('handsShake');
+	imgCpu.classList.add('handsShake');
+}
 // CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
 
 rock.addEventListener('click', game);
@@ -98,8 +100,11 @@ function game(event) {
 
 
 	// if (totalGames <= 5) {
+		
 	if (user != cpu) {
+		
 		if (user === 'Piedra' && cpu === 'Tijera') {
+
 			imgPlayer.src = './images/rock_izq.jpg';
 			imgCpu.src = './images/scissors_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
@@ -159,11 +164,14 @@ function game(event) {
 	// 	// VALIDAR QUIEN GANÓ
 	// 	whoWin();
 	// }
+
 }
 //MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
 function showButtons() {
-	buttons.classList.remove('hidden');
+	buttons.classList.remove('hidden')
 }
+showButtons()
+
 
 function whoWin() {
 	if (pointsPlayer > pointsCpu) {
