@@ -96,6 +96,7 @@ function game(event) {
 	// RETRASAR JUGADA HASTA DESPUES DE LA VIBRACION
 	// MOSTRAR BOTONES PARA CONTINUAR JUGANDO
 
+
 	// if (totalGames <= 5) {
 	if (user != cpu) {
 		if (user === 'Piedra' && cpu === 'Tijera') {
@@ -104,13 +105,13 @@ function game(event) {
 			message.innerHTML = 'YOU WIN!!';
 			pointsPlayer.innerHTML = scorePlayer += 1;
 			totalGames.innerHTML = countGames + 1;
-		} if (user === 'Papel' && cpu === 'Piedra') {
+		} else if (user === 'Papel' && cpu === 'Piedra') {
 			imgPlayer.src = './images/paper_izq.jpg';
 			imgCpu.src = './images/rock_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
 			pointsPlayer.innerHTML = scorePlayer += 1;
 			totalGames.innerHTML = countGames + 1;
-		} if (user === 'Tijera' && cpu === 'Papel') {
+		} else if (user === 'Tijera' && cpu === 'Papel') {
 			imgPlayer.src = './images/scissors_izq.jpg';
 			imgCpu.src = './images/paper_der.jpg';
 			message.innerHTML = 'YOU WIN!!';
