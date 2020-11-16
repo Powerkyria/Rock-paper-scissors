@@ -18,13 +18,13 @@ const totalGames = document.getElementById('totalGames');
 
 // MENSAJE PREGUNTANDO SI ESTA LISTO PARA JUGAR--->HECHO
 
-alert('Are You Ready Nigga?');
+alert('Are You Ready?');
 
 //SI TOCA ALGUN BOTON DOY POR COMENZADA LA PARTIDA, YA NO HAY MARCHA ATRAS HABER ELEGIDO MUERTE
 buttons.addEventListener('click', startGame);
 
 function startGame() {
-	// OCULTAR BOTONES PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
+	// OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
 	function hideScreenElements() {
 		buttons.classList.add('hidden');
 		punctuation.classList.add('hidden');
@@ -68,18 +68,16 @@ rock.addEventListener('click', game);
 paper.addEventListener('click', game);
 scissors.addEventListener('click', game);
 
-// ELECCION DEL JUGADOR
+// HACER QUE CPU SAQUE JUGADA RANDOM---HECHO
+function playCpu() {
+	const hands = [ 'rock', 'paper', 'scissors' ];
+	const handCpu = hands[Math.floor(Math.random() * hands.length)];
+	return handCpu;
+}
 
-// function playUser(){
-// 	if(){
-		
-// 	}
-// }
-
-
-
-function game(user, cpu) {
-
+function game(event) {
+	const user = event.currentTarget.innerHTML;
+	console.log(user)
 	startGame();
 
 	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
@@ -87,69 +85,57 @@ function game(user, cpu) {
 	let scoreCPU = 0;
 	let countGames = scorePlayer + scoreCPU;
 
-	// HACER QUE CPU SAQUE JUGADA RANDOM---HECHO
-	function playCpu() {
-		const hands = [ 'rock', 'paper', 'scissors' ];
-		const handCpu = hands[Math.floor(Math.random() * hands.length)];
-		return handCpu;
-	}
-	playCpu()
-
-	// while (totalGames <= 5) {
-
-	// SACAR MANOS Y MOSTRAR MENSAJES--->INCOMPLETO NO FUNCIONA EL WHILE AUN
+	// SACAR MANOS Y MOSTRAR MENSAJES
 	// PINTAR MARCADOR DENTRO DE SU PIZARRA--->HECHO
 	// MOSTRAR NUMERO DE PARTIDAS JUGADAS ---AUN NO SE SI FUNCIONA
 	// RETRASAR UN SEGUNDO EL MENSAJE
-
-	if (user != cpu) {
-		if (user === rock && cpu === 'scissors') {
-			imgPlayer.src = './images/rock_izq.jpg';
-			imgCpu.src = './images/scissors_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			pointsPlayer.innerHTML = scorePlayer += 1;
-			totalGames.innerHTML = countGames;
-		} else if (user === paper && cpu === 'rock') {
-			imgPlayer.src = './images/paper_izq.jpg';
-			imgCpu.src = './images/rock_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			pointsPlayer.innerHTML = scorePlayer += 1;
-			totalGames.innerHTML = countGames;
-		} else if (user === scissors && cpu === 'paper') {
-			imgPlayer.src = './images/scissors_izq.jpg';
-			imgCpu.src = './images/paper_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			pointsPlayer.innerHTML = scorePlayer += 1;
-			totalGames.innerHTML = countGames;
-		} else {
-			// message.innerHTML = 'YOU LOOSE!!';
-			pointsCpu.innerHTML = scoreCPU += 1;
-			totalGames.innerHTML = countGames;
+	if (totalGames <= 5) {
+		if (user != playCpu()) {
+			if (user === rock && playCpu() === 'scissors') {
+				imgPlayer.src = './images/rock_izq.jpg';
+				imgCpu.src = './images/scissors_der.jpg';
+				message.innerHTML = 'YOU WIN!!';
+				pointsPlayer.innerHTML = scorePlayer += 1;
+				totalGames.innerHTML = countGames;
+			} else if (user === paper && playCpu() === 'rock') {
+				imgPlayer.src = './images/paper_izq.jpg';
+				imgCpu.src = './images/rock_der.jpg';
+				message.innerHTML = 'YOU WIN!!';
+				pointsPlayer.innerHTML = scorePlayer += 1;
+				totalGames.innerHTML = countGames;
+			} else if (user === scissors && playCpu() === 'paper') {
+				imgPlayer.src = './images/scissors_izq.jpg';
+				imgCpu.src = './images/paper_der.jpg';
+				message.innerHTML = 'YOU WIN!!';
+				pointsPlayer.innerHTML = scorePlayer += 1;
+				totalGames.innerHTML = countGames;
+			} else {
+				message.innerHTML = 'YOU LOOSE!!';
+				pointsCpu.innerHTML = scoreCPU += 1;
+				totalGames.innerHTML = countGames;
+			}
+		} else if (user === playCpu()) {
+			message.innerHTML = 'EMPATE';
+			totalGames.innerHTML = countGames + 1;
+			//  NO PONER SI NO QUIERO EMPATES
 		}
-	} else if (user === cpu) {
-		message.innerHTML = 'EMPATE';
-		// totalGames.innerHTML = countGames + 1; NO PONER SI NO QUIERO EMPATES
+		//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
+		buttons.classList.remove('hidden');
+	} else {
+		// VALIDAR QUIEN GANÓ
+		// function whoWin() {
+		// 	if (pointsPlayer > pointsCpu) {
+		// 		message.innerHTML = 'Enhorabuena';
+		// 	} else if (pointsPlayer < pointsCpu) {
+		// 		message.innerHTML = 'Mala suerte';
+		// 	} else {
+		// 		message.innerHTML = 'Empate';
+		// NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
+		// 	}
+		// }
+		// whoWin();
 	}
-	//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
-	buttons.classList.remove('hidden');
-	// }
 }
-
-game(playUser(), playCpu());
-
-// VALIDAR QUIEN GANÓ
-
-// function whoWin() {
-// 	if (pointsPlayer > pointsCpu) {
-// 		message.innerHTML = 'Enhorabuena';
-// 	} else if (pointsPlayer < pointsCpu) {
-// 		message.innerHTML = 'Mala suerte';
-// 	} else {
-// 		message.innerHTML = 'Empate';
-// NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
-// 	}
-// }
-// whoWin();
 
 // MODAL FINAL
 
