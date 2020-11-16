@@ -42,7 +42,6 @@ function startGame() {
 			handsShake();
 		}
 	};
-
 	setInterval(countDown, 1000);
 }
 
@@ -53,7 +52,6 @@ function hideScreenElements() {
 	compu.classList.add('hidden');
 	player.classList.add('hidden');
 }
-
 // FUNCION PARA VOLVER A MOSTRAR MARCADOR Y PLAYERS--->HECHO
 function showPunctuationAndPlayers() {
 	punctuation.classList.remove('hidden');
@@ -66,7 +64,7 @@ function handsShake() {
 	imgCpu.classList.add('handsShake');
 }
 
-// CUANDO UN BOTON SEA CLICADO ME LLEVA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
+// CUANDO EL PLAYER ELIGA BOTON LLAMA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
 
 rock.addEventListener('click', game);
 paper.addEventListener('click', game);
@@ -84,17 +82,17 @@ function game(event) {
 	let cpu = playCpu();
 	console.log(user);
 	console.log(cpu);
-	playCpu();
 	startGame();
 
 	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
 	let scorePlayer = 0;
 	let scoreCPU = 0;
-	let countGames = scorePlayer + scoreCPU;
+	let countGames;
 
 	// SACAR MANOS Y MOSTRAR MENSAJES--->HECHO
 	// PINTAR MARCADOR DENTRO DE SU PIZARRA--->HECHO
 	// MOSTRAR NUMERO DE PARTIDAS JUGADAS --->HECHO
+
 	// RETRASAR EL MENSAJE
 	// RETRASAR JUGADA HASTA DESPUES DE LA VIBRACION
 	// MOSTRAR BOTONES PARA CONTINUAR JUGANDO
@@ -105,16 +103,24 @@ function game(event) {
 		if (user === 'Piedra' && cpu === 'Tijera') {
 			imgPlayer.src = './images/rock_izq.jpg';
 			imgCpu.src = './images/scissors_der.jpg';
+			message.innerHTML = 'YOU WIN!!';
+			pointsPlayer.innerHTML = scorePlayer += 1;
+			countGames = scorePlayer + scoreCPU;
+			totalGames.innerHTML = countGames;
 		} else if (user === 'Papel' && cpu === 'Piedra') {
 			imgPlayer.src = './images/paper_izq.jpg';
 			imgCpu.src = './images/rock_der.jpg';
+			message.innerHTML = 'YOU WIN!!';
+			pointsPlayer.innerHTML = scorePlayer += 1;
+			countGames = scorePlayer + scoreCPU;
+			totalGames.innerHTML = countGames ;
 		} else if (user === 'Tijera' && cpu === 'Papel') {
 			imgPlayer.src = './images/scissors_izq.jpg';
 			imgCpu.src = './images/paper_der.jpg';
-
 			message.innerHTML = 'YOU WIN!!';
 			pointsPlayer.innerHTML = scorePlayer += 1;
-			totalGames.innerHTML = countGames + 1;
+			countGames = scorePlayer + scoreCPU;
+			totalGames.innerHTML = countGames ;
 		} else {
 			if (user === 'Papel' && cpu === 'Tijera') {
 				imgPlayer.src = './images/paper_izq.jpg';
@@ -130,8 +136,10 @@ function game(event) {
 			}
 			message.innerHTML = 'YOU LOOSE!!';
 			pointsCpu.innerHTML = scoreCPU += 1;
-			totalGames.innerHTML = countGames + 1;
-		}
+			countGames = scorePlayer + scoreCPU;
+			totalGames.innerHTML = countGames;
+		}	
+
 	} else if (user === cpu) {
 		if (user === 'Tijera' && cpu === 'Tijera') {
 			imgPlayer.src = './images/scissors_izq.jpg';
@@ -148,17 +156,19 @@ function game(event) {
 		message.innerHTML = 'EMPATE';
 		totalGames.innerHTML = countGames + 1;
 	}
+	
 
-	// } else {
-	// 	// VALIDAR QUIEN GANÓ
-	// 	whoWin();
-	// }
+// 	// } else {
+// 	// 	// VALIDAR QUIEN GANÓ
+// 	// 	whoWin();
+// 	// }
 }
 //MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
+
 function showButtons() {
 	buttons.classList.remove('hidden');
 }
-showButtons();
+
 
 function whoWin() {
 	if (pointsPlayer > pointsCpu) {
