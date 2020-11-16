@@ -74,14 +74,14 @@ function playCpu() {
 	const handCpu = hands[Math.floor(Math.random() * hands.length)];
 	return handCpu;
 }
-console.log(playCpu())
+console.log(playCpu());
 
 function game(event) {
-	let user = event.target.innerHTML;
-	let cpu=playCpu();
+	let user = event.currentTarget.innerHTML;
+	let cpu = playCpu();
 	console.log(user);
 	console.log(cpu);
-	playCpu()
+	playCpu();
 	startGame();
 
 	// CREO CONTADOR QUE UTILIZARé EN LAS VALIDACIONES PARA SUMAR PUNTOS--->HECHO
@@ -89,51 +89,80 @@ function game(event) {
 	let scoreCPU = 0;
 	let countGames = scorePlayer + scoreCPU;
 
-	// SACAR MANOS Y MOSTRAR MENSAJES
+	// SACAR MANOS Y MOSTRAR MENSAJES--->HECHO
 	// PINTAR MARCADOR DENTRO DE SU PIZARRA--->HECHO
-	// MOSTRAR NUMERO DE PARTIDAS JUGADAS ---AUN NO SE SI FUNCIONA
-	// RETRASAR UN SEGUNDO EL MENSAJE
+	// MOSTRAR NUMERO DE PARTIDAS JUGADAS --->HECHO
+	// RETRASAR EL MENSAJE 
+	// RETRASAR JUGADA HASTA DESPUES DE LA VIBRACION
+	// MOSTRAR BOTONES PARA CONTINUAR JUGANDO
+
 	// if (totalGames <= 5) {
-		if (user != playCpu()) {
-			if (user === 'Piedra' && cpu === 'Tijera') {
-				imgPlayer.src = './images/rock_izq.jpg';
-				imgCpu.src = './images/scissors_der.jpg';
-				message.innerHTML = 'YOU WIN!!';
-				pointsPlayer.innerHTML = scorePlayer += 1;
-				totalGames.innerHTML = countGames;
-			} else if (user === 'Papel' && cpu === 'Piedra') {
-				imgPlayer.src = './images/paper_izq.jpg';
-				imgCpu.src = './images/rock_der.jpg';
-				message.innerHTML = 'YOU WIN!!';
-				pointsPlayer.innerHTML = scorePlayer += 1;
-				totalGames.innerHTML = countGames;
-			} else if (user === 'Tijera' && cpu === 'Papel') {
-				imgPlayer.src = './images/scissors_izq.jpg';
-				imgCpu.src = './images/paper_der.jpg';
-				message.innerHTML = 'YOU WIN!!';
-				pointsPlayer.innerHTML = scorePlayer += 1;
-				totalGames.innerHTML = countGames;
-			} else {
-				message.innerHTML = 'YOU LOOSE!!';
-				pointsCpu.innerHTML = scoreCPU += 1;
-				totalGames.innerHTML = countGames;
-			}
-		} else if (user === cpu) {
-			message.innerHTML = 'EMPATE';
+	if (user != cpu) {
+		if (user === 'Piedra' && cpu === 'Tijera') {
+			imgPlayer.src = './images/rock_izq.jpg';
+			imgCpu.src = './images/scissors_der.jpg';
+			message.innerHTML = 'YOU WIN!!';
+			pointsPlayer.innerHTML = scorePlayer += 1;
 			totalGames.innerHTML = countGames + 1;
-			//  NO PONER SI NO QUIERO EMPATES
+		} if (user === 'Papel' && cpu === 'Piedra') {
+			imgPlayer.src = './images/paper_izq.jpg';
+			imgCpu.src = './images/rock_der.jpg';
+			message.innerHTML = 'YOU WIN!!';
+			pointsPlayer.innerHTML = scorePlayer += 1;
+			totalGames.innerHTML = countGames + 1;
+		} if (user === 'Tijera' && cpu === 'Papel') {
+			imgPlayer.src = './images/scissors_izq.jpg';
+			imgCpu.src = './images/paper_der.jpg';
+			message.innerHTML = 'YOU WIN!!';
+			pointsPlayer.innerHTML = scorePlayer += 1;
+			totalGames.innerHTML = countGames + 1;
+		} else if(user ==='Papel'&& cpu === 'Tijera'){
+			imgPlayer.src = './images/paper_izq.jpg';
+			imgCpu.src = './images/scissors_der.jpg';
+			message.innerHTML = 'YOU LOOSE!!';
+			pointsCpu.innerHTML = scoreCPU += 1;
+			totalGames.innerHTML = countGames + 1;
+		} else if(user ==='Piedra'&& cpu === 'Papel'){
+			imgPlayer.src = './images/rock_izq.jpg';
+			imgCpu.src = './images/paper_der.jpg';
+			message.innerHTML = 'YOU LOOSE!!';
+			pointsCpu.innerHTML = scoreCPU += 1;
+			totalGames.innerHTML = countGames + 1;
+	
+		}else if(user ==='Tijera'&& cpu === 'Piedra'){
+			imgPlayer.src = './images/scissors_izq.jpg';
+			imgCpu.src = './images/rock_der.jpg';
+			message.innerHTML = 'YOU LOOSE!!';
+			pointsCpu.innerHTML = scoreCPU += 1;
+			totalGames.innerHTML = countGames + 1;
 		}
-		//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
-		function showButtons(){
-			buttons.classList.remove('hidden');
+	
+	} else if (user === cpu) {
+		if(user==='Tijera' && cpu==='Tijera'){
+			imgPlayer.src = './images/scissors_izq.jpg';
+			imgCpu.src = './images/scissors_der.jpg';
 		}
-		showButtons()
+		if(user==='Papel' && cpu==='Papel'){
+			imgPlayer.src = './images/paper_izq.jpg';
+			imgCpu.src = './images/paper_der.jpg';
+		}
+		if(user==='Piedra' && cpu==='Piedra'){
+			imgPlayer.src = './images/rock_izq.jpg';
+			imgCpu.src = './images/rock_der.jpg';
+		}
+		message.innerHTML = 'EMPATE';
+		totalGames.innerHTML = countGames + 1;
+	}
+
 	// } else {
 	// 	// VALIDAR QUIEN GANÓ
 	// 	whoWin();
 	// }
 }
-
+//MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
+function showButtons() {
+	buttons.classList.remove('hidden');
+}
 
 function whoWin() {
 	if (pointsPlayer > pointsCpu) {
@@ -142,7 +171,7 @@ function whoWin() {
 		message.innerHTML = 'Mala suerte';
 	} else {
 		message.innerHTML = 'Empate';
-// NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
+		// NO PONER SI LOS PUNTOS DEL EMPARE NO CUENTAN
 	}
 }
 // MODAL FINAL
