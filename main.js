@@ -24,11 +24,9 @@ alert('Are You Ready?');
 buttons.addEventListener('click', startGame);
 
 function startGame() {
-	
+	//OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
 	hideScreenElements();
-
-	// CUENTA ATRAS DE TRES SEGUNDOS--->HECHO
-
+	//FUNCION DE CUENTA ATRAS DE 3 SEGUNDOS
 	let timer = 4;
 	const countDown = () => {
 		timer--;
@@ -39,9 +37,7 @@ function startGame() {
 		if (timer === 0) {
 			message.remove();
 			// VOLVER A MOSTRAR MARCADOR Y PLAYERS--->HECHO
-			punctuation.classList.remove('hidden');
-			player.classList.remove('hidden');
-			compu.classList.remove('hidden');
+			showPunctuationAndPlayers();
 			//AÑADIR VIBRACION A LAS MANOS ANTES DE MOSTRAR LA MANO--->HECHO!
 			handsShake();
 		}
@@ -56,6 +52,13 @@ function hideScreenElements() {
 	punctuation.classList.add('hidden');
 	compu.classList.add('hidden');
 	player.classList.add('hidden');
+}
+
+// FUNCION PARA VOLVER A MOSTRAR MARCADOR Y PLAYERS--->HECHO
+function showPunctuationAndPlayers() {
+	punctuation.classList.remove('hidden');
+	player.classList.remove('hidden');
+	compu.classList.remove('hidden');
 }
 //FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA--->HECHO
 function handsShake() {
