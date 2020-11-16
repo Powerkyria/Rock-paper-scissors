@@ -154,7 +154,7 @@ function game(event) {
 			imgCpu.src = './images/rock_der.jpg';
 		}
 		message.innerHTML = 'EMPATE';
-		totalGames.innerHTML = countGames + 1;
+		totalGames.innerHTML = 1;
 	}
 	
 
