@@ -169,7 +169,7 @@ button {
 }
 
 .gameOver_animation{
-	animation:backInDown;
+	animation:bounceInDown;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
 }
