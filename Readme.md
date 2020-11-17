@@ -20,3 +20,8 @@
 -Si el usuario pierde 'Mala suerte'.
 
 -Mensaje final en un modal o prompt 'Quieres la revancha o tienes miedo?' Boton de ok y boton de salir, si acepta, empezar de nuevo el juego si elige boton de salir, terminar juego.
+
+-IDEAS:
+ 
+ - Prompt preguntando el nombre para ponerlo en lugar de Player.
+ - Mostrar trofeo al ganar, pop al perder
