@@ -32,62 +32,62 @@ function game(event) {
 	console.log(user);
 	console.log(cpu);
 
-	if (user != cpu) {
-		if (user === 'Piedra' && cpu === 'Tijera') {
-			imgPlayer.src = './images/rock_izq.jpg';
-			imgCpu.src = './images/scissors_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			pointsPlayer.innerHTML++;
-			totalGames.innerHTML++;
-		} else if (user === 'Papel' && cpu === 'Piedra') {
-			imgPlayer.src = './images/paper_izq.jpg';
-			imgCpu.src = './images/rock_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			pointsPlayer.innerHTML++;
-			totalGames.innerHTML++;
-		} else if (user === 'Tijera' && cpu === 'Papel') {
-			imgPlayer.src = './images/scissors_izq.jpg';
-			imgCpu.src = './images/paper_der.jpg';
-			message.innerHTML = 'YOU WIN!!';
-			pointsPlayer.innerHTML++;
-			totalGames.innerHTML++;
-		} else {
-			if (user === 'Papel' && cpu === 'Tijera') {
+	if (totalGames.innerHTML < 5) {
+		if (user != cpu) {
+			if (user === 'Piedra' && cpu === 'Tijera') {
+				imgPlayer.src = './images/rock_izq.jpg';
+				imgCpu.src = './images/scissors_der.jpg';
+				message.innerHTML = 'YOU WIN!!';
+				pointsPlayer.innerHTML++;
+				totalGames.innerHTML++;
+			} else if (user === 'Papel' && cpu === 'Piedra') {
 				imgPlayer.src = './images/paper_izq.jpg';
+				imgCpu.src = './images/rock_der.jpg';
+				message.innerHTML = 'YOU WIN!!';
+				pointsPlayer.innerHTML++;
+				totalGames.innerHTML++;
+			} else if (user === 'Tijera' && cpu === 'Papel') {
+				imgPlayer.src = './images/scissors_izq.jpg';
+				imgCpu.src = './images/paper_der.jpg';
+				message.innerHTML = 'YOU WIN!!';
+				pointsPlayer.innerHTML++;
+				totalGames.innerHTML++;
+			} else {
+				if (user === 'Papel' && cpu === 'Tijera') {
+					imgPlayer.src = './images/paper_izq.jpg';
+					imgCpu.src = './images/scissors_der.jpg';
+				}
+				if (user === 'Piedra' && cpu === 'Papel') {
+					imgPlayer.src = './images/rock_izq.jpg';
+					imgCpu.src = './images/paper_der.jpg';
+				}
+				if (user === 'Tijera' && cpu === 'Piedra') {
+					imgPlayer.src = './images/scissors_izq.jpg';
+					imgCpu.src = './images/rock_der.jpg';
+				}
+				message.innerHTML = 'YOU LOOSE!!';
+				pointsCpu.innerHTML++;
+				totalGames.innerHTML++;
+			}
+		} else if (user === cpu) {
+			if (user === 'Tijera' && cpu === 'Tijera') {
+				imgPlayer.src = './images/scissors_izq.jpg';
 				imgCpu.src = './images/scissors_der.jpg';
 			}
-			if (user === 'Piedra' && cpu === 'Papel') {
-				imgPlayer.src = './images/rock_izq.jpg';
+			if (user === 'Papel' && cpu === 'Papel') {
+				imgPlayer.src = './images/paper_izq.jpg';
 				imgCpu.src = './images/paper_der.jpg';
 			}
-			if (user === 'Tijera' && cpu === 'Piedra') {
-				imgPlayer.src = './images/scissors_izq.jpg';
+			if (user === 'Piedra' && cpu === 'Piedra') {
+				imgPlayer.src = './images/rock_izq.jpg';
 				imgCpu.src = './images/rock_der.jpg';
 			}
-			message.innerHTML = 'YOU LOOSE!!';
-			pointsCpu.innerHTML++;
+			message.innerHTML = 'EMPATE';
 			totalGames.innerHTML++;
 		}
-	} else if (user === cpu) {
-		if (user === 'Tijera' && cpu === 'Tijera') {
-			imgPlayer.src = './images/scissors_izq.jpg';
-			imgCpu.src = './images/scissors_der.jpg';
-		}
-		if (user === 'Papel' && cpu === 'Papel') {
-			imgPlayer.src = './images/paper_izq.jpg';
-			imgCpu.src = './images/paper_der.jpg';
-		}
-		if (user === 'Piedra' && cpu === 'Piedra') {
-			imgPlayer.src = './images/rock_izq.jpg';
-			imgCpu.src = './images/rock_der.jpg';
-		}
-		message.innerHTML = 'EMPATE';
-		totalGames.innerHTML++;
-	}
-
-	// VALIDAR QUIEN GANÓ
-	if (totalGames < 5) {
-		whoWin();
+	} else {
+		// VALIDAR QUIEN GANÓ
+			whoWin();
 	}
 }
 
@@ -127,7 +127,7 @@ function startGame(callback) {
 
 //FUNCION PARA OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADAS
 function hideScreenElements() {
-	buttons.classList.add('hidden');
+	hideButtons();
 	punctuation.classList.add('hidden');
 	compu.classList.add('hidden');
 	player.classList.add('hidden');
@@ -151,16 +151,20 @@ function playCpu() {
 	return handCpu;
 }
 
-// FUNCION PARA MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
+// FUNCION PARA MOSTRAR BOTONES ANTES DE LA SIGUIENTE TIRADA
 function showButtons() {
 	buttons.classList.remove('hidden');
+}
+// FUNCION PARA OCULTAR BOTONES ANTES DE LA SIGUIENTE TIRADA
+function hideButtons() {
+	buttons.classList.add('hidden');
 }
 
 //FUNCION PARA VALIDAR QUIEN GANÓ EL JUEGO
 function whoWin() {
-	if (pointsPlayer > pointsCpu) {
+	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
 		message.innerHTML = 'Enhorabuena!!';
-	} else if (pointsPlayer < pointsCpu) {
+	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
 		message.innerHTML = 'Mala suerte';
 	} else {
 		message.innerHTML = 'Empate';
