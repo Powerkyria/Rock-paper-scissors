@@ -143,23 +143,25 @@ function game(event) {
 
 // setTimeout(showModal, 5000);
 
-// FUNCION PARA DAR INTRO AL JUEGO----> NO APLICADA AUN
+//FUNCION PARA DAR INTRO AL JUEGO----> NO APLICADA AUN
 function startGame() {
 	hideScreenElements();
-	let timer = 4;
-	const countDown = () => {
-		timer--;
-		message.classList.add('countDown_animation');
-		message.style.fontSize = '550px';
-		message.innerHTML = timer;
-
-		if (timer === 0) {
-			message.remove();
-			showPunctuationAndPlayers();
-			handsShake();
-		}
-	};
 	setInterval(countDown, 1000);
+}
+
+//FUNCION DE CUENTA ATRAS
+let timer = 4;
+function countDown() {
+	timer--;
+	message.classList.add('countDown_animation');
+	message.style.fontSize = '550px';
+	message.innerHTML = timer;
+
+	if (timer === 0) {
+		message.remove();
+		showPunctuationAndPlayers();
+		handsShake();
+	}
 }
 
 //FUNCION PARA OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADAS
@@ -170,12 +172,14 @@ function hideScreenElements() {
 	compu.classList.add('hidden');
 	player.classList.add('hidden');
 }
+
 //FUNCION PARA VOLVER A MOSTRAR MARCADOR Y PLAYERS
 function showPunctuationAndPlayers() {
 	punctuation.classList.remove('hidden');
 	player.classList.remove('hidden');
 	compu.classList.remove('hidden');
 }
+
 //FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA
 function handsShake() {
 	imgPlayer.classList.add('handsShake_animation');
@@ -210,11 +214,11 @@ function showWinner() {
 	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
 		message.classList.add('champion_animation');
 		message.innerHTML = '<img src= ./images/cup600.png>';
-		message.style.padding= '50px';
+		message.style.padding = '50px';
 	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
 		message.innerHTML = '<img src= ./images/gameOver.png>';
 		message.classList.add('gameOver_animation');
-		message.style.padding= '50px';
+		message.style.padding = '50px';
 	} else {
 		message.innerHTML = `E M P A T E`;
 	}
