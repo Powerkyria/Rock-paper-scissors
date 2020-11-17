@@ -25,7 +25,7 @@ alert('Are You Ready?');
 //PENDIENTE
 // MOSTRAR QUIEN GANA AL FINAL SIN TENER QUE APRETAR UN BOTON
 // AÑADIR VIBRACION ANTES DE MOSTRAR LA MANO
-// AÑADIR ANIMACION AL MENSAJE
+// AÑADIR ANIMACION AL MENSAJE: message.classList.add('message_animation');
 // PONER MODAL FINAL
 
 rock.addEventListener('click', game);
@@ -92,7 +92,7 @@ function game(event) {
 					imgPlayer.src = './images/scissors_izq.png';
 					imgCpu.src = './images/rock_der.png';
 				}
-				message.innerHTML = 'YOU LOOSE!!';
+				message.innerHTML = 'YOU LOSE!!';
 				pointsCpu.innerHTML++;
 				totalGames.innerHTML++;
 				hideButtons();
@@ -149,7 +149,7 @@ function startGame() {
 	let timer = 4;
 	const countDown = () => {
 		timer--;
-		message.classList.add('countDownAnimation');
+		message.classList.add('countDown_animation');
 		message.style.fontSize = '550px';
 		message.innerHTML = timer;
 
@@ -178,8 +178,8 @@ function showPunctuationAndPlayers() {
 }
 //FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA
 function handsShake() {
-	imgPlayer.classList.add('handsShake');
-	imgCpu.classList.add('handsShake');
+	imgPlayer.classList.add('handsShake_animation');
+	imgCpu.classList.add('handsShake_animation');
 }
 
 //FUNCION PARA HACER QUE CPU SAQUE JUGADA RANDOM
@@ -208,10 +208,14 @@ function hideImages() {
 //FUNCION PARA VALIDAR QUIEN GANÓ EL JUEGO
 function showWinner() {
 	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
-		message.innerHTML = 'E N H O R A B U E N A!!';
+		message.classList.add('champion_animation');
+		message.innerHTML = '<img src= ./images/cup600.png>';
+		message.style.padding= '50px';
 	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
-		message.innerHTML = 'M A L A  S U E R T E';
+		message.innerHTML = '<img src= ./images/gameOver.png>';
+		message.classList.add('gameOver_animation');
+		message.style.padding= '50px';
 	} else {
-		message.innerHTML = 'E M P A T E';
+		message.innerHTML = `E M P A T E`;
 	}
 }

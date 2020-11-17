@@ -117,7 +117,7 @@ button {
 	margin: 0;
 }
 
-.animation_message {
+/* .animation_message {
 	animation-duration: 1s;
 	animation-name: boom;
 	animation-iteration-count: 1;
@@ -140,17 +140,36 @@ button {
 		-ms-transform: scale(1);
 		-o-transform: scale(1);
 }
+} */
+
+.message_animation {
+	animation: zoomIn;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
 }
 
-.countDownAnimation{
+.countDown_animation{
 	animation: bounceOut;
 	animation-duration: 1s;
 	animation-iteration-count: 3;
 	color:gray;
 }
 
-.handsShake{
+.handsShake_animation{
 	animation:shakeY;
 	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+}
+
+/*hacer q rote*/
+.champion_animation{
+	animation:zoomIn;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+
+.gameOver_animation{
+	animation:backInDown;
+	animation-duration: 1s;
 	animation-iteration-count: 1;
 }
