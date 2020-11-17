@@ -16,37 +16,21 @@ const pointsPlayer = document.getElementById('pointsPlayer');
 const pointsCpu = document.getElementById('pointsCpu');
 const totalGames = document.getElementById('totalGames');
 
-// MENSAJE PREGUNTANDO SI ESTA LISTO PARA JUGAR--->HECHO
-
 alert('Are You Ready?');
 
 //SI TOCA ALGUN BOTON DOY POR COMENZADA LA PARTIDA, YA NO HAY MARCHA ATRÁS, HABER ELEGIDO MUERTE
 // buttons.addEventListener('click', startGame);
 // startGame(game());
 
-// CUANDO EL PLAYER ELIGA BOTON LLAMA A LA FUNCION GAME QUE FILTRARá LO QUE DEBE HACER SEGUN EL BOTON ELEGIDO--->HECHO
-
 rock.addEventListener('click', game);
 paper.addEventListener('click', game);
 scissors.addEventListener('click', game);
 
 function game(event) {
-	//GUARDAR VALOR DEL BOTON ELEGIDO POR EL PLAYER
 	let user = event.currentTarget.innerHTML;
 	let cpu = playCpu();
 	console.log(user);
 	console.log(cpu);
-
-	// SACAR MANOS Y MOSTRAR MENSAJES--->HECHO
-	// PINTAR MARCADOR DENTRO DE SU PIZARRA--->HECHO
-	// MOSTRAR NUMERO DE PARTIDAS JUGADAS --->HECHO
-
-	// RETRASAR EL MENSAJE
-	// RETRASAR JUGADA HASTA DESPUES DE LA VIBRACION
-	// MOSTRAR BOTONES PARA CONTINUAR JUGANDO
-	// HACER QUE SUME LAS PARTIDAS
-
-	// while (totalGames <= 5) {
 
 	if (user != cpu) {
 		if (user === 'Piedra' && cpu === 'Tijera') {
@@ -100,29 +84,13 @@ function game(event) {
 		message.innerHTML = 'EMPATE';
 		totalGames.innerHTML++;
 	}
-}
 
-// // VALIDAR QUIEN GANÓ
-// whoWin();
-
-// }
-
-// FUNCION PARA MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
-
-function showButtons() {
-	buttons.classList.remove('hidden');
-}
-showButtons();
-
-function whoWin() {
-	if (pointsPlayer > pointsCpu) {
-		message.innerHTML = 'Enhorabuena';
-	} else if (pointsPlayer < pointsCpu) {
-		message.innerHTML = 'Mala suerte';
-	} else {
-		message.innerHTML = 'Empate';
+	// VALIDAR QUIEN GANÓ
+	if (totalGames < 5) {
+		whoWin();
 	}
 }
+
 // MODAL FINAL
 
 // const showModal = () => {
@@ -134,11 +102,13 @@ function whoWin() {
 
 // setTimeout(showModal, 5000);
 
-// ------------
+// RETRASAR EL MENSAJE
+// RETRASAR JUGADA HASTA DESPUES DE LA VIBRACION
+// MOSTRAR BOTONES PARA CONTINUAR JUGANDO
+
+// FUNCION PARA DAR INTRO AL JUEGO----> NO APLICADA AUN
 function startGame(callback) {
-	//OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
 	hideScreenElements();
-	//FUNCION DE CUENTA ATRAS DE 3 SEGUNDOS
 	let timer = 4;
 	const countDown = () => {
 		timer--;
@@ -148,37 +118,51 @@ function startGame(callback) {
 
 		if (timer === 0) {
 			message.remove();
-			// VOLVER A MOSTRAR MARCADOR Y PLAYERS--->HECHO
 			showPunctuationAndPlayers();
-			//AÑADIR VIBRACION A LAS MANOS ANTES DE MOSTRAR LA MANO--->HECHO!
 			handsShake();
 		}
 	};
 	setInterval(countDown, 1000);
 }
 
-// FUNCION PARA OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADA--->HECHO
+//FUNCION PARA OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADAS
 function hideScreenElements() {
 	buttons.classList.add('hidden');
 	punctuation.classList.add('hidden');
 	compu.classList.add('hidden');
 	player.classList.add('hidden');
 }
-// FUNCION PARA VOLVER A MOSTRAR MARCADOR Y PLAYERS--->HECHO
+//FUNCION PARA VOLVER A MOSTRAR MARCADOR Y PLAYERS
 function showPunctuationAndPlayers() {
 	punctuation.classList.remove('hidden');
 	player.classList.remove('hidden');
 	compu.classList.remove('hidden');
 }
-//FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA--->HECHO
+//FUNCION PARA VIBRACION DE MANOS ANTES DE MOSTRAR LA JUGADA
 function handsShake() {
 	imgPlayer.classList.add('handsShake');
 	imgCpu.classList.add('handsShake');
 }
 
-// FUNCION PARA HACER QUE CPU SAQUE JUGADA RANDOM---HECHO
+//FUNCION PARA HACER QUE CPU SAQUE JUGADA RANDOM
 function playCpu() {
 	const hands = [ 'Piedra', 'Papel', 'Tijera' ];
 	const handCpu = hands[Math.floor(Math.random() * hands.length)];
 	return handCpu;
+}
+
+// FUNCION PARA MOSTRAR BOTON ANTES DE LA SIGUIENTE TIRADA
+function showButtons() {
+	buttons.classList.remove('hidden');
+}
+
+//FUNCION PARA VALIDAR QUIEN GANÓ EL JUEGO
+function whoWin() {
+	if (pointsPlayer > pointsCpu) {
+		message.innerHTML = 'Enhorabuena!!';
+	} else if (pointsPlayer < pointsCpu) {
+		message.innerHTML = 'Mala suerte';
+	} else {
+		message.innerHTML = 'Empate';
+	}
 }
