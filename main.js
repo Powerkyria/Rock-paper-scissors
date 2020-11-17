@@ -51,6 +51,8 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
+					imgPlayer.src = './images/rock_izq.jpg';
+					imgCpu.src = './images/rock_der.jpg';
 				}, 1000);
 			} else if (user === 'Papel' && cpu === 'Piedra') {
 				imgPlayer.src = './images/paper_izq.jpg';
@@ -62,6 +64,8 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
+					imgPlayer.src = './images/rock_izq.jpg';
+					imgCpu.src = './images/rock_der.jpg';
 				}, 1000);
 			} else if (user === 'Tijera' && cpu === 'Papel') {
 				imgPlayer.src = './images/scissors_izq.jpg';
@@ -73,6 +77,8 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
+					imgPlayer.src = './images/rock_izq.jpg';
+					imgCpu.src = './images/rock_der.jpg';
 				}, 1000);
 			} else {
 				if (user === 'Papel' && cpu === 'Tijera') {
@@ -94,6 +100,8 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
+					imgPlayer.src = './images/rock_izq.jpg';
+					imgCpu.src = './images/rock_der.jpg';
 				}, 1000);
 			}
 		} else if (user === cpu) {
@@ -115,6 +123,8 @@ function game(event) {
 			setTimeout(() => {
 				message.innerHTML = '';
 				showButtons();
+				imgPlayer.src = './images/rock_izq.jpg';
+				imgCpu.src = './images/rock_der.jpg';
 			}, 1000);
 		}
 	} else {
