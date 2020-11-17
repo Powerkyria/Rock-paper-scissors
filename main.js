@@ -37,21 +37,30 @@ function game(event) {
 			if (user === 'Piedra' && cpu === 'Tijera') {
 				imgPlayer.src = './images/rock_izq.jpg';
 				imgCpu.src = './images/scissors_der.jpg';
+				hideButtons();
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
+				setTimeout(() => (message.innerHTML = ''), 1000);
+				setTimeout(showButtons, 1000);
 			} else if (user === 'Papel' && cpu === 'Piedra') {
 				imgPlayer.src = './images/paper_izq.jpg';
 				imgCpu.src = './images/rock_der.jpg';
+				hideButtons();
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
+				setTimeout(() => (message.innerHTML = ''), 1000);
+				setTimeout(showButtons, 1000);
 			} else if (user === 'Tijera' && cpu === 'Papel') {
 				imgPlayer.src = './images/scissors_izq.jpg';
 				imgCpu.src = './images/paper_der.jpg';
+				hideButtons();
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
+				setTimeout(() => (message.innerHTML = ''), 1000);
+				setTimeout(showButtons, 1000);
 			} else {
 				if (user === 'Papel' && cpu === 'Tijera') {
 					imgPlayer.src = './images/paper_izq.jpg';
@@ -65,9 +74,12 @@ function game(event) {
 					imgPlayer.src = './images/scissors_izq.jpg';
 					imgCpu.src = './images/rock_der.jpg';
 				}
+				hideButtons();
 				message.innerHTML = 'YOU LOOSE!!';
 				pointsCpu.innerHTML++;
 				totalGames.innerHTML++;
+				setTimeout(() => (message.innerHTML = ''), 1000);
+				setTimeout(showButtons, 1000);
 			}
 		} else if (user === cpu) {
 			if (user === 'Tijera' && cpu === 'Tijera') {
@@ -82,13 +94,15 @@ function game(event) {
 				imgPlayer.src = './images/rock_izq.jpg';
 				imgCpu.src = './images/rock_der.jpg';
 			}
+			hideButtons();
 			message.innerHTML = 'EMPATE';
 			totalGames.innerHTML++;
+			setTimeout(() => (message.innerHTML = ''), 1000);
+			setTimeout(showButtons, 1000);
 		}
 	} else {
 		hideScreenElements();
-		// VALIDAR QUIEN GANÓ
-		whoWin();
+		showWinner();
 	}
 }
 
@@ -108,7 +122,7 @@ function game(event) {
 // MOSTRAR BOTONES PARA CONTINUAR JUGANDO
 
 // FUNCION PARA DAR INTRO AL JUEGO----> NO APLICADA AUN
-function startGame(callback) {
+function startGame() {
 	hideScreenElements();
 	let timer = 4;
 	const countDown = () => {
@@ -157,6 +171,7 @@ function playCpu() {
 function showButtons() {
 	buttons.classList.remove('hidden');
 }
+
 // FUNCION PARA OCULTAR BOTONES
 function hideButtons() {
 	buttons.classList.add('hidden');
@@ -169,7 +184,7 @@ function hideImages() {
 }
 
 //FUNCION PARA VALIDAR QUIEN GANÓ EL JUEGO
-function whoWin() {
+function showWinner() {
 	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
 		message.innerHTML = 'Enhorabuena!!';
 	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
