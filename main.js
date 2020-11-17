@@ -48,8 +48,10 @@ function game(event) {
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
 				hideButtons();
-				setTimeout(() => (message.innerHTML = ''), 1000);
-				setTimeout(showButtons, 1000);
+				setTimeout(() => {
+					message.innerHTML = '';
+					showButtons();
+				}, 1000);
 			} else if (user === 'Papel' && cpu === 'Piedra') {
 				imgPlayer.src = './images/paper_izq.jpg';
 				imgCpu.src = './images/rock_der.jpg';
@@ -57,8 +59,10 @@ function game(event) {
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
 				hideButtons();
-				setTimeout(() => (message.innerHTML = ''), 1000);
-				setTimeout(showButtons, 1000);
+				setTimeout(() => {
+					message.innerHTML = '';
+					showButtons();
+				}, 1000);
 			} else if (user === 'Tijera' && cpu === 'Papel') {
 				imgPlayer.src = './images/scissors_izq.jpg';
 				imgCpu.src = './images/paper_der.jpg';
@@ -66,8 +70,10 @@ function game(event) {
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
 				hideButtons();
-				setTimeout(() => (message.innerHTML = ''), 1000);
-				setTimeout(showButtons, 1000);
+				setTimeout(() => {
+					message.innerHTML = '';
+					showButtons();
+				}, 1000);
 			} else {
 				if (user === 'Papel' && cpu === 'Tijera') {
 					imgPlayer.src = './images/paper_izq.jpg';
@@ -85,8 +91,10 @@ function game(event) {
 				pointsCpu.innerHTML++;
 				totalGames.innerHTML++;
 				hideButtons();
-				setTimeout(() => (message.innerHTML = ''), 1000);
-				setTimeout(showButtons, 1000);
+				setTimeout(() => {
+					message.innerHTML = '';
+					showButtons();
+				}, 1000);
 			}
 		} else if (user === cpu) {
 			if (user === 'Tijera' && cpu === 'Tijera') {
@@ -104,8 +112,10 @@ function game(event) {
 			message.innerHTML = 'EMPATE';
 			totalGames.innerHTML++;
 			hideButtons();
-			setTimeout(() => (message.innerHTML = ''), 1000);
-			setTimeout(showButtons, 1000);
+			setTimeout(() => {
+				message.innerHTML = '';
+				showButtons();
+			}, 1000);
 		}
 	} else {
 		hideScreenElements();
