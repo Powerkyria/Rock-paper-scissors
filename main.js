@@ -23,7 +23,6 @@ alert('Are You Ready?');
 // startGame(game());
 
 //PENDIENTE
-// HACER QUE TODAS LAS IMAGENES MIDAN LO MISMO
 // MOSTRAR QUIEN GANA AL FINAL SIN TENER QUE APRETAR UN BOTON
 // AÑADIR VIBRACION ANTES DE MOSTRAR LA MANO
 // AÑADIR ANIMACION AL MENSAJE
@@ -42,8 +41,8 @@ function game(event) {
 	if (totalGames.innerHTML < 5) {
 		if (user != cpu) {
 			if (user === 'Piedra' && cpu === 'Tijera') {
-				imgPlayer.src = './images/rock_izq.jpg';
-				imgCpu.src = './images/scissors_der.jpg';
+				imgPlayer.src = './images/rock_izq.png';
+				imgCpu.src = './images/scissors_der.png';
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
@@ -51,12 +50,12 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
-					imgPlayer.src = './images/rock_izq.jpg';
-					imgCpu.src = './images/rock_der.jpg';
+					imgPlayer.src = './images/rock_izq.png';
+					imgCpu.src = './images/rock_der.png';
 				}, 2000);
 			} else if (user === 'Papel' && cpu === 'Piedra') {
-				imgPlayer.src = './images/paper_izq.jpg';
-				imgCpu.src = './images/rock_der.jpg';
+				imgPlayer.src = './images/paper_izq.png';
+				imgCpu.src = './images/rock_der.png';
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
@@ -64,12 +63,12 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
-					imgPlayer.src = './images/rock_izq.jpg';
-					imgCpu.src = './images/rock_der.jpg';
+					imgPlayer.src = './images/rock_izq.png';
+					imgCpu.src = './images/rock_der.png';
 				}, 2000);
 			} else if (user === 'Tijera' && cpu === 'Papel') {
-				imgPlayer.src = './images/scissors_izq.jpg';
-				imgCpu.src = './images/paper_der.jpg';
+				imgPlayer.src = './images/scissors_izq.png';
+				imgCpu.src = './images/paper_der.png';
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
@@ -77,21 +76,21 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
-					imgPlayer.src = './images/rock_izq.jpg';
-					imgCpu.src = './images/rock_der.jpg';
+					imgPlayer.src = './images/rock_izq.png';
+					imgCpu.src = './images/rock_der.png';
 				}, 2000);
 			} else {
 				if (user === 'Papel' && cpu === 'Tijera') {
-					imgPlayer.src = './images/paper_izq.jpg';
-					imgCpu.src = './images/scissors_der.jpg';
+					imgPlayer.src = './images/paper_izq.png';
+					imgCpu.src = './images/scissors_der.png';
 				}
 				if (user === 'Piedra' && cpu === 'Papel') {
-					imgPlayer.src = './images/rock_izq.jpg';
-					imgCpu.src = './images/paper_der.jpg';
+					imgPlayer.src = './images/rock_izq.png';
+					imgCpu.src = './images/paper_der.png';
 				}
 				if (user === 'Tijera' && cpu === 'Piedra') {
-					imgPlayer.src = './images/scissors_izq.jpg';
-					imgCpu.src = './images/rock_der.jpg';
+					imgPlayer.src = './images/scissors_izq.png';
+					imgCpu.src = './images/rock_der.png';
 				}
 				message.innerHTML = 'YOU LOOSE!!';
 				pointsCpu.innerHTML++;
@@ -100,22 +99,22 @@ function game(event) {
 				setTimeout(() => {
 					message.innerHTML = '';
 					showButtons();
-					imgPlayer.src = './images/rock_izq.jpg';
-					imgCpu.src = './images/rock_der.jpg';
+					imgPlayer.src = './images/rock_izq.png';
+					imgCpu.src = './images/rock_der.png';
 				}, 2000);
 			}
 		} else if (user === cpu) {
 			if (user === 'Tijera' && cpu === 'Tijera') {
-				imgPlayer.src = './images/scissors_izq.jpg';
-				imgCpu.src = './images/scissors_der.jpg';
+				imgPlayer.src = './images/scissors_izq.png';
+				imgCpu.src = './images/scissors_der.png';
 			}
 			if (user === 'Papel' && cpu === 'Papel') {
-				imgPlayer.src = './images/paper_izq.jpg';
-				imgCpu.src = './images/paper_der.jpg';
+				imgPlayer.src = './images/paper_izq.png';
+				imgCpu.src = './images/paper_der.png';
 			}
 			if (user === 'Piedra' && cpu === 'Piedra') {
-				imgPlayer.src = './images/rock_izq.jpg';
-				imgCpu.src = './images/rock_der.jpg';
+				imgPlayer.src = './images/rock_izq.png';
+				imgCpu.src = './images/rock_der.png';
 			}
 			message.innerHTML = 'EMPATE';
 			totalGames.innerHTML++;
@@ -123,8 +122,8 @@ function game(event) {
 			setTimeout(() => {
 				message.innerHTML = '';
 				showButtons();
-				imgPlayer.src = './images/rock_izq.jpg';
-				imgCpu.src = './images/rock_der.jpg';
+				imgPlayer.src = './images/rock_izq.png';
+				imgCpu.src = './images/rock_der.png';
 			}, 2000);
 		}
 	} else {
