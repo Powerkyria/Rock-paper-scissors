@@ -22,6 +22,13 @@ alert('Are You Ready?');
 // buttons.addEventListener('click', startGame);
 // startGame(game());
 
+//PENDIENTE
+// HACER QUE TODAS LAS IMAGENES MIDAN LO MISMO
+// MOSTRAR QUIEN GANA AL FINAL SIN TENER QUE APRETAR UN BOTON
+// AÑADIR VIBRACION ANTES DE MOSTRAR LA MANO
+// AÑADIR ANIMACION AL MENSAJE
+// PONER MODAL FINAL
+
 rock.addEventListener('click', game);
 paper.addEventListener('click', game);
 scissors.addEventListener('click', game);
@@ -37,28 +44,28 @@ function game(event) {
 			if (user === 'Piedra' && cpu === 'Tijera') {
 				imgPlayer.src = './images/rock_izq.jpg';
 				imgCpu.src = './images/scissors_der.jpg';
-				hideButtons();
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
+				hideButtons();
 				setTimeout(() => (message.innerHTML = ''), 1000);
 				setTimeout(showButtons, 1000);
 			} else if (user === 'Papel' && cpu === 'Piedra') {
 				imgPlayer.src = './images/paper_izq.jpg';
 				imgCpu.src = './images/rock_der.jpg';
-				hideButtons();
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
+				hideButtons();
 				setTimeout(() => (message.innerHTML = ''), 1000);
 				setTimeout(showButtons, 1000);
 			} else if (user === 'Tijera' && cpu === 'Papel') {
 				imgPlayer.src = './images/scissors_izq.jpg';
 				imgCpu.src = './images/paper_der.jpg';
-				hideButtons();
 				message.innerHTML = 'YOU WIN!!';
 				pointsPlayer.innerHTML++;
 				totalGames.innerHTML++;
+				hideButtons();
 				setTimeout(() => (message.innerHTML = ''), 1000);
 				setTimeout(showButtons, 1000);
 			} else {
@@ -74,10 +81,10 @@ function game(event) {
 					imgPlayer.src = './images/scissors_izq.jpg';
 					imgCpu.src = './images/rock_der.jpg';
 				}
-				hideButtons();
 				message.innerHTML = 'YOU LOOSE!!';
 				pointsCpu.innerHTML++;
 				totalGames.innerHTML++;
+				hideButtons();
 				setTimeout(() => (message.innerHTML = ''), 1000);
 				setTimeout(showButtons, 1000);
 			}
@@ -94,9 +101,9 @@ function game(event) {
 				imgPlayer.src = './images/rock_izq.jpg';
 				imgCpu.src = './images/rock_der.jpg';
 			}
-			hideButtons();
 			message.innerHTML = 'EMPATE';
 			totalGames.innerHTML++;
+			hideButtons();
 			setTimeout(() => (message.innerHTML = ''), 1000);
 			setTimeout(showButtons, 1000);
 		}
@@ -116,10 +123,6 @@ function game(event) {
 // };
 
 // setTimeout(showModal, 5000);
-
-// RETRASAR EL MENSAJE
-// RETRASAR JUGADA HASTA DESPUES DE LA VIBRACION
-// MOSTRAR BOTONES PARA CONTINUAR JUGANDO
 
 // FUNCION PARA DAR INTRO AL JUEGO----> NO APLICADA AUN
 function startGame() {
@@ -186,10 +189,10 @@ function hideImages() {
 //FUNCION PARA VALIDAR QUIEN GANÓ EL JUEGO
 function showWinner() {
 	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
-		message.innerHTML = 'Enhorabuena!!';
+		message.innerHTML = 'E N H O R A B U E N A!!';
 	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
-		message.innerHTML = 'Mala suerte';
+		message.innerHTML = 'M A L A  S U E R T E';
 	} else {
-		message.innerHTML = 'Empate';
+		message.innerHTML = 'E M P A T E';
 	}
 }
