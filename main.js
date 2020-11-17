@@ -86,8 +86,9 @@ function game(event) {
 			totalGames.innerHTML++;
 		}
 	} else {
+		hideScreenElements();
 		// VALIDAR QUIEN GANÓ
-			whoWin();
+		whoWin();
 	}
 }
 
@@ -128,6 +129,7 @@ function startGame(callback) {
 //FUNCION PARA OCULTAR BOTONES. PLAYERS, MARCADOR Y NUMERO DE JUEGOS MIENTRAS DOY PASO A LA JUGADAS
 function hideScreenElements() {
 	hideButtons();
+	hideImages();
 	punctuation.classList.add('hidden');
 	compu.classList.add('hidden');
 	player.classList.add('hidden');
@@ -151,13 +153,19 @@ function playCpu() {
 	return handCpu;
 }
 
-// FUNCION PARA MOSTRAR BOTONES ANTES DE LA SIGUIENTE TIRADA
+// FUNCION PARA MOSTRAR BOTONES
 function showButtons() {
 	buttons.classList.remove('hidden');
 }
-// FUNCION PARA OCULTAR BOTONES ANTES DE LA SIGUIENTE TIRADA
+// FUNCION PARA OCULTAR BOTONES
 function hideButtons() {
 	buttons.classList.add('hidden');
+}
+
+// FUNCION PARA OCULTAR IMAGENES
+function hideImages() {
+	imgPlayer.classList.add('hidden');
+	imgCpu.classList.add('hidden');
 }
 
 //FUNCION PARA VALIDAR QUIEN GANÓ EL JUEGO
