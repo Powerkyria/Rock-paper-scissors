@@ -18,6 +18,9 @@ const totalGames = document.getElementById('totalGames');
 
 alert('Are You Ready?');
 
+let name= prompt('Enter your player name');
+player.innerHTML= name || player.innerHTML;
+
 //SI TOCA ALGUN BOTON DOY POR COMENZADA LA PARTIDA, YA NO HAY MARCHA ATRÁS, HABER ELEGIDO MUERTE
 // buttons.addEventListener('click', startGame);
 // startGame(game());
@@ -213,7 +216,7 @@ function hideImages() {
 function showWinner() {
 	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
 		message.classList.add('champion_animation');
-		message.innerHTML = '<img src= ./images/cup600.png>';
+		message.innerHTML = `<img src= ./images/cup600.png>`;
 		message.style.padding = '50px';
 	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
 		message.innerHTML = '<img src= ./images/gameOver.png>';
