@@ -18,8 +18,8 @@ const totalGames = document.getElementById('totalGames');
 
 alert('Are You Ready?');
 
-let name= prompt('Enter your player name');
-player.innerHTML= name || player.innerHTML;
+let name = prompt('Enter your player name');
+player.innerHTML = name || player.innerHTML;
 
 //SI TOCA ALGUN BOTON DOY POR COMENZADA LA PARTIDA, YA NO HAY MARCHA ATRÁS, HABER ELEGIDO MUERTE
 // buttons.addEventListener('click', startGame);

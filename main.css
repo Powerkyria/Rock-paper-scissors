@@ -3,15 +3,15 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	height: 100vh;
-    width: 100vw;
+	width: 100vw;
 }
 
 .centerPart {
-    padding-top: 70px;
+	padding-top: 70px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-} 
+}
 
 button {
 	display: flex;
@@ -27,33 +27,36 @@ button {
 	font-size: 22px;
 	border: 2px solid black;
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 	cursor: pointer;
 	outline: none;
 }
 
 #rockButton {
-	background-color: blue;
+	background-color: #ff4b5de0;
 	color: white;
 }
 #rockButton:hover {
-	background-color: rgb(74, 74, 241);
+	background-color: #fa7481;
+	border: 3px solid black;
 }
 
 #paperButton {
-	background-color: teal;
+	background-color: #056674;
 	color: white;
 }
 #paperButton:hover {
-	background-color: rgb(23, 160, 160);
+	background-color: #088497;
+	border: 3px solid black;
 }
 
 #scissorsButton {
-	background-color: blueviolet;
+	background-color: #66bfbf;
 	color: white;
 }
 #scissorsButton:hover {
-	background-color: rgb(161, 86, 231);
+	background-color: #70d6d6;
+	border: 3px solid black;
 }
 
 .hidden {
@@ -67,16 +70,16 @@ button {
 	width: 400px;
 }
 
-#players{
+#players {
 	color: #333;
-    display: flex;
-    justify-content: space-between;
-    font-size: 40px;
-    margin-right: 130px;
-    margin-left: 130px;
-    margin-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 40px;
+	margin-right: 130px;
+	margin-left: 130px;
+	margin-bottom: 40px;
 }
-#totalGames{
+#totalGames {
 	color: black;
 	font-size: 43px;
 	width: 50px;
@@ -94,19 +97,18 @@ button {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background-color:black;
+	background-color: black;
 	color: white;
 	width: 300px;
 	height: 50px;
 	border-radius: 50px;
 	margin: auto;
 	margin-bottom: 25px;
-
 }
 
-#modal{
- height: 100px;
- justify-content: center;
+#modal {
+	height: 100px;
+	justify-content: center;
 }
 #message {
 	display: flex;
@@ -148,28 +150,28 @@ button {
 	animation-iteration-count: 1;
 }
 
-.countDown_animation{
+.countDown_animation {
 	animation: bounceOut;
 	animation-duration: 1s;
 	animation-iteration-count: 3;
-	color:gray;
+	color: gray;
 }
 
-.handsShake_animation{
-	animation:shakeY;
+.handsShake_animation {
+	animation: shakeY;
 	animation-duration: 1.5s;
 	animation-iteration-count: 1;
 }
 
 /*hacer q rote*/
-.champion_animation{
-	animation:zoomIn;
+.champion_animation {
+	animation: zoomIn;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
 }
 
-.gameOver_animation{
-	animation:bounceInDown;
+.gameOver_animation {
+	animation: bounceInDown;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
 }
