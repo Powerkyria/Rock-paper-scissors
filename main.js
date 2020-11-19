@@ -223,6 +223,7 @@ function showWinner() {
 		message.classList.add('gameOver_animation');
 		message.style.padding = '50px';
 	} else {
+		message.classList.add('draw_animation');
 		message.innerHTML =  '<img src= ./images/empate.png>';
 		message.style.padding = '50px';
 	}

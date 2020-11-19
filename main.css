@@ -175,3 +175,9 @@ button {
 	animation-duration: 1s;
 	animation-iteration-count: 1;
 }
+
+.draw_animation {
+	animation: swing;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
