@@ -216,13 +216,14 @@ function hideImages() {
 function showWinner() {
 	if (pointsPlayer.innerHTML > pointsCpu.innerHTML) {
 		message.classList.add('champion_animation');
-		message.innerHTML = `<img src= ./images/cup600.png>`;
+		message.innerHTML = `<img src= ./images/champ.png>`;
 		message.style.padding = '50px';
 	} else if (pointsPlayer.innerHTML < pointsCpu.innerHTML) {
 		message.innerHTML = '<img src= ./images/gameOver.png>';
 		message.classList.add('gameOver_animation');
 		message.style.padding = '50px';
 	} else {
-		message.innerHTML = `E M P A T E`;
+		message.innerHTML =  '<img src= ./images/empate.png>';
+		message.style.padding = '50px';
 	}
 }
